@@ -1,0 +1,130 @@
+{% extends "news/header.html" %}
+
+{% block content %}
+
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+
+
+  <section id="mainContent">
+    <div class="content_middle">
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="content_middle_leftbar">
+          <div class="single_category wow fadeInDown">
+            <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <a href="archive1.html" class="title_text">category1</a> </h2>
+            <ul class="catg1_nav">
+
+
+              {% for news_category1 in news_list %}
+
+              <li>
+                <div class="catgimg_container"> <a href="single.html" class="catg1_img"> <img alt="" src="{{ news_category1.news_image }}"> </a> </div>
+                <h3 class="post_titile"><a href="single.html">{{ news_category1.news_title }}</a></h3>
+              </li>
+            </ul>
+
+            {% endfor %}
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="content_middle_middle">
+          <div class="slick_slider2">
+
+            {% for middel in News_middel %}
+
+            <div class="single_featured_slide"> <a href="single.html"><img src="{{ middel.news_image }}" alt="" height="350" width="300"></a>
+              <h2><a href="single.html">{{ middel.news_title }}</a></h2>
+              <p>{{ middel.news_discriptions }}</p>
+            </div>
+
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="content_middle_rightbar">
+          <div class="single_category wow fadeInDown">
+            <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <a href="archive1.html" class="title_text">category2</a> </h2>
+            <ul class="catg1_nav">
+
+
+               {% for news_category2 in news_list2 %}
+
+              <li>
+                <div class="catgimg_container"> <a href="single.html" class="catg1_img"> <img alt="" src="{{ news_category2.news_image }}"> </a> </div>
+                <h3 class="post_titile"><a href="single.html">{{ news_category2.news_title }}</a></h3>
+              </li>
+              {% endfor %}
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="content_bottom">
+      <div class="col-lg-8 col-md-8">
+        <div class="content_bottom_left">
+          <div class="single_category wow fadeInDown">
+            <div class="archive_style_1">
+              <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <span class="title_text">Latest Updates</span> </h2>
+              <div class="single_archive wow fadeInDown">
+
+                {% for bottam in News_bottam %}
+
+                <div class="archive_imgcontainer"><img src="{{ bottam.news_image }}"  alt=""> </div>
+                <div class="archive_caption">
+                  <h2><a href="single.html">{{ bottam.news_title }}</a></h2>
+                  <p>{{ bottam.news_discriptions }}</p>
+                </div>
+                <a class="read_more" href="single.html"><span>Read More</span></a> </div>
+
+              {% endfor %}
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="col-lg-4 col-md-4">
+           <div class="content_bottom_right">
+            <div class="single_bottom_rightbar">
+            <h2>Game Rating</h2>
+               <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Game Name</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for rate in rating %}
+      <tr>
+        <td>{{ rate.game_name }}</td>
+        <td>{{ rate.rating }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </section>
+</div>
+
+{% endblock %}

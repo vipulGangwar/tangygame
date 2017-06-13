@@ -1,0 +1,86 @@
+{% extends "news/header.html" %}
+
+{% block content %}
+
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+
+
+<section id="mainContent">
+    <div class="content_top">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="latest_slider">
+            <div class="slick_slider">
+
+              {% for middel in News_middel %}
+
+              <div class="single_iteam"><img src="{{ middel.news_image }}" height="400" width="350" alt="">
+                <h2><a class="slider_tittle" href="news_middel/{{ middel.id }}">{{ middel.news_title }}</a></h2>
+              </div>
+
+             {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content" >
+     <div class="col-lg-8 col-md-8">
+        <div class="content_left">
+          <div class="single_category wow fadeInDown">
+            <div class="archive_style_1">
+              <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <span class="title_text">Latest Updates</span> </h2>
+              <div class="single_archive wow fadeInDown">
+
+                {% for bottam in News_bottam %}
+
+                <div class="archive_imgcontainer"><img src="{{ bottam.news_image }}" alt=""> </div>
+                <div class="archive_caption">
+                  <h2><a href="news_bottam/{{ bottam.id }}">{{ bottam.news_title }}</a></h2>
+                  <p>{{ bottam.news_sort_discriptions }}</p>
+                </div>
+                <a class="read_more" href="news_bottam/{{ bottam.id }}"><span>Read More</span></a> </div>
+
+                {% endfor %}
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4">
+        <div class="content_right">
+          <div class="single_category wow fadeInDown">
+                <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <a href="#" class="title_text">Games Rating</a> </h2>
+
+              <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Game Name</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for rate in rating %}
+      <tr>
+        <td>{{ rate.game_name }}</td>
+        <td>{{ rate.rating }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+</div>
+{% endblock %}

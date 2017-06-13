@@ -1,0 +1,75 @@
+{% extends "news/header.html" %}
+{% block content %}
+
+
+<section id="mainContent">
+  <div class="container">
+    <div class="row">
+   <div class=" col-sm-12 col-md-9 col-lg-8">
+        <div class="row">
+          <div class="leftbar_content">
+
+
+ {% for Post in list %}
+<div class="single_stuff_img"><a href="{{ Post.id }}"><img src="{{ Post.image }}" alt="" height="350" ></a></div>
+<div class="stuff_article_inner"><a href="{{ Post.id }}"><h2>{{ Post.title }}</h2></a></div>
+<div class="stuff_article_inner"><p>{{ Post.sort_discription }}</p></div>
+
+<p>----------------------------------------------------------------------------------------------------------------</p>
+  {% endfor %}
+
+
+
+
+
+         </div>
+        </div>
+   </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="content_middle_rightbar">
+          <div class="single_category wow fadeInDown">
+            <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <a href="#" class="title_text">Side News</a> </h2>
+
+              {% for Side in Side_list %}
+
+            <ul class="catg1_nav">
+              <li>
+                <div class="catgimg_container"> <a href="side/{{ Side.id }}" class="catg1_img"><img alt="" src="{{ Side.side_image}}"></a></div>
+                <h3 class="post_titile"><a href="side/{{ Side.id }}">{{ Side.side_title }}</a></h3>
+              </li>
+            </ul>
+              {% endfor %}
+
+
+                </div>
+        </div>
+
+           <div class="single_category wow fadeInDown">
+                <h2> <span class="bold_line"><span></span></span> <span class="solid_line"></span> <a href="#" class="title_text">Games Rating</a> </h2>
+
+              <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Game Name</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for rate in rating %}
+      <tr>
+        <td>{{ rate.game_name }}</td>
+        <td>{{ rate.rating }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+ </section>
+
+
+{% endblock %}
+

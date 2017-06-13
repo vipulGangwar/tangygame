@@ -1,0 +1,37 @@
+{% extends "news/header.html" %}
+
+{% block content %}
+
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+
+<section id="mainContent">
+<table class="table table-condensed">
+					     <tr>
+						   <th>Box Art</th>
+						   <th>Game Title</th>
+						   <th>Vipul Rating</th>
+						 </tr>
+
+                        {% for view in review %}
+
+						 <tr>
+						   <td> <img src="{{ view.review_image }}" height=160 width=160></td>
+						   <td > <h3>{{ view.review_title }}</h3> <br>
+						        {{ view.review_sort_discription }}
+						    </td>
+							<td id=rating><h3>{{ view.review_rating }}</h3><br>
+							    {{ view.review_review }}
+						    </td>
+						 </tr>
+
+                        {% endfor %}
+
+                      </table>
+</section>
+</div>
+
+{% endblock %}
